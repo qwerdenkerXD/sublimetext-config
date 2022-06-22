@@ -1,0 +1,4 @@
+{
+    "shell_cmd": "wsl --cd \"${file_path:${folder}}\" pdflatex --shell-escape -halt-on-error \"$file_name\" && \"$file_base_name.pdf\"",
+    "selector":"text.tex.latex"
+}

@@ -1,0 +1,18 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"LaTeXYZ",
+		"Package Control",
+		"SublimeLinter",
+		"SublimeLinter-chktex",
+		"SublimeLinter-contrib-checkstyle",
+		"SublimeLinter-javac",
+		"SublimeLinter-pycodestyle",
+		"Terminus",
+		"yUML",
+	],
+}

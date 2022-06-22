@@ -1,0 +1,11 @@
+// SublimeLinter Settings - User
+{
+    "linters":{
+        "chktex":{
+            "executable": ["wsl", "chktex"],
+        },
+        "pycodestyle":{
+            "executable": ["wsl", "pycodestyle"],
+        },
+    },
+}

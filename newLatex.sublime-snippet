@@ -1,0 +1,16 @@
+<snippet>
+    <content><![CDATA[\documentclass{${1:scrartcl}}
+\title{${TM_FILENAME/(.+)\..+|.*/$1/:name}}
+\author{}
+\date{\the\day.\the\month.\the\year}
+
+\usepackage{}
+
+\begin{document}
+    $2
+\end{document}
+]]></content>
+    <tabTrigger>new</tabTrigger>
+    <scope>text.tex.latex</scope>
+    <description>New LaTeX</description>
+</snippet>

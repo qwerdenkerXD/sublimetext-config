@@ -1,0 +1,53 @@
+[
+// {"keys":["ä"],"command":"insert", "args":{"characters": "ae"} },
+// {"keys":["ö"],"command":"insert", "args":{"characters": "oe"} },
+// {"keys":["ü"],"command":"insert", "args":{"characters": "ue"} },
+// {"keys":["Ä"],"command":"insert", "args":{"characters": "Ae"} },
+// {"keys":["Ö"],"command":"insert", "args":{"characters": "Oe"} },
+// {"keys":["Ü"],"command":"insert", "args":{"characters": "Ue"} },
+// {"keys":["ß"],"command":"insert", "args":{"characters": "ss"} },
+
+{ "keys": ["ctrl+space"], "command": "toggle_comment", "args": { "block": false } },
+{ "keys": ["ctrl+shift+space"], "command": "toggle_comment", "args": { "block": true } },
+
+//Open Explorer
+{ "keys": ["ctrl+e"], "command": "open_dir", 
+    "args": {"dir": "$file_path", "file": "$file_name"} },
+
+//Open current file with system default app
+{ "keys": ["ctrl+shift+e"], "command": "open_dir", 
+    "args": {"dir": "$file"} },
+
+//Terminus
+{
+   "keys": ["alt+1"],
+   "command": "terminus_open",
+   "args" : {
+       "cmd": "bash",
+       "cwd": "${file_path:${folder}}",
+       "panel_name": "Terminus"
+   }
+},
+{
+   "keys": ["alt+shift+1"],
+   "command": "terminus_close",
+   // "context": [{ "key": "terminus_view"}]
+},
+{
+   "keys": ["alt+2"],
+   "command": "terminus_open",
+   "args" : {
+       "cmd": "cmd",
+       "cwd": "${file_path:${folder}}",
+       "panel_name": "Terminus"
+   }
+},
+
+//SublimeLinter
+{ "keys": ["alt+right"], "command": "sublime_linter_goto_error",
+      "args": { "direction": "next" }
+    },
+{ "keys": ["alt+left"], "command": "sublime_linter_goto_error",
+      "args": { "direction": "previous" }
+    },
+]
