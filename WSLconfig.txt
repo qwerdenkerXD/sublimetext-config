@@ -1,0 +1,7 @@
+# packages and aliases
+sudo apt update && sudo apt upgrade && sudo apt autoremove
+echo "alias cd..='cd ..'
+alias update='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
+alias py='python3'" >> ~/.bash_aliases
+sudo apt install python3-pip texlive-full openjdk-17-jdk-headless r-base
+sudo pip3 install pycodestyle

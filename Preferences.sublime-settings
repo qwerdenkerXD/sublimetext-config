@@ -11,7 +11,6 @@
   "translate_tabs_to_spaces": true,
 	"ignored_packages":
 	[
-		"SublimeLinter-contrib-checkstyle",
 		"Vintage",
 	],
     "ignored_snippets": ["enum"],
