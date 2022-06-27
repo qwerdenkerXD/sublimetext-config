@@ -1,0 +1,58 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+name: FASTA
+scope: source.fasta
+
+file_extensions:
+  - fasta
+
+variables:
+  nucleotides: |-
+    (?x: A | C | G | T | U | R | Y | W | S | M | K | H | B | V | D | N )
+
+  aminoacids: |-
+    (?x: R | H | K | S | T | N | Q | A | V | I | L | M | D | E | G | P | C | U | F | Y | W )
+
+contexts:
+  prototype:
+    - include: comment
+  main: # sequence is main context
+    - meta_scope: text.fasta
+
+      # headline
+    - match: '^>'
+      scope: punctuation.definition.heading.begin.fasta
+      set: header
+
+      # everything before first headline
+    - match: '.*'
+      scope: invalid.illegal.stray.fasta
+
+
+
+  header:
+    - meta_scope: markup.heading.1
+    - match: $
+      set: comment
+    - match: ':|\|'
+      scope: punctuation.separator.fasta
+    - match: '(\b\w*\d[a-zA-Z]+\w*\b)|(\b\w*[A-Za-z]+\d\w*\b)'
+      scope: markup.italic.fasta, markup.bold.fasta
+    - match: '\b[\d\.]+\b'
+      scope: constant.numeric.fasta
+
+  comment:
+    - meta_scope: comment.line.fasta
+    - match: '^(?!;)'
+      scope: text.fasta
+      set: sequence
+
+  sequence:
+    - meta_scope: text.fasta
+    - match: '^>'
+      scope: punctuation.definition.heading.begin.fasta
+      set: header
+
+    - match: '(?!{{nucleotides}}|{{aminoacids}}).'
+      scope: invalid.illegal.stray.fasta
