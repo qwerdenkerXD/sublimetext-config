@@ -5,8 +5,12 @@
 	],
 	"installed_packages":
 	[
+		"Brainfuck",
 		"LaTeXYZ",
+		"LuaExtended",
+		"Origami",
 		"Package Control",
+		"SQLTools",
 		"SublimeLinter",
 		"SublimeLinter-chktex",
 		"SublimeLinter-contrib-checkstyle",

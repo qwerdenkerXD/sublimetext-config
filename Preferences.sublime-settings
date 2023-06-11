@@ -11,8 +11,10 @@
   "translate_tabs_to_spaces": true,
 	"ignored_packages":
 	[
+		"SublimeLinter-javac",
 		"Vintage",
 	],
     "ignored_snippets": ["enum"],
     "sublime_merge_path": "%submerge%",
+	"color_scheme": "Mariana.sublime-color-scheme",
 }

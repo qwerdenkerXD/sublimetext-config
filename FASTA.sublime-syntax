@@ -6,6 +6,9 @@ scope: source.fasta
 
 file_extensions:
   - fasta
+  - fa
+  - mfa
+  - fas
 
 variables:
   nucleotides: |-

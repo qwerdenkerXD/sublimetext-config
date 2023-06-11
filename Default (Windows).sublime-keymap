@@ -14,32 +14,55 @@
 { "keys": ["ctrl+e"], "command": "open_dir", 
     "args": {"dir": "$file_path", "file": "$file_name"} },
 
+//Single View
+{
+    "keys": ["alt+shift+0"],
+    "command": "set_layout",
+    "args":
+    {
+        "cols": [0.0, 1.0],
+        "rows": [0.0, 1.0],
+        "cells": [[0, 0, 1, 1]]
+    }
+},
+
 //Open current file with system default app
 { "keys": ["ctrl+shift+e"], "command": "open_dir", 
     "args": {"dir": "$file"} },
 
 //Terminus
-{
+{ // as panel
    "keys": ["alt+1"],
    "command": "terminus_open",
    "args" : {
-       "cmd": "bash",
+       "cmd": ["bash", "zsh"],
        "cwd": "${file_path:${folder}}",
-       "panel_name": "Terminus"
+       "panel_name": "ZSH"
    }
 },
-{
+{ // as tab
    "keys": ["alt+shift+1"],
-   "command": "terminus_close",
-   // "context": [{ "key": "terminus_view"}]
+   "command": "terminus_open",
+   "args" : {
+       "cmd": ["bash", "zsh"],
+       "cwd": "${file_path:${folder}}",
+   }
 },
-{
+{ // as panel
    "keys": ["alt+2"],
    "command": "terminus_open",
    "args" : {
        "cmd": "cmd",
        "cwd": "${file_path:${folder}}",
-       "panel_name": "Terminus"
+       "panel_name": "CMD"
+   }
+},
+{ // as tab
+   "keys": ["alt+shift+2"],
+   "command": "terminus_open",
+   "args" : {
+       "cmd": ["cmd"],
+       "cwd": "${file_path:${folder}}",
    }
 },
 
@@ -50,4 +73,29 @@
 { "keys": ["alt+left"], "command": "sublime_linter_goto_error",
       "args": { "direction": "previous" }
     },
+
+// Origami
+// { "keys": ["alt+shift+up"], "command": "chain",
+//       "args": {"commands": [["create_pane_with_file", {"direction": "up"}],
+//                             ["travel_to_pane", {"direction": "down"}]]} },
+{ "keys": ["alt+shift+up"], "command": "create_pane", 
+      "args": {"direction": "up"} },
+{ "keys": ["alt+shift+right"], "command": "create_pane", 
+      "args": {"direction": "right"} },
+{ "keys": ["alt+shift+down"], "command": "create_pane", 
+      "args": {"direction": "down"} },
+{ "keys": ["alt+shift+left"], "command": "create_pane", 
+      "args": {"direction": "left"} },
+
+{ "keys": ["ctrl+alt+shift+up"], "command": "destroy_pane", 
+      "args": {"direction": "up"} },
+{ "keys": ["ctrl+alt+shift+right"], "command": "destroy_pane", 
+      "args": {"direction": "right"} },
+{ "keys": ["ctrl+alt+shift+down"], "command": "destroy_pane", 
+      "args": {"direction": "down"} },
+{ "keys": ["ctrl+alt+shift+left"], "command": "destroy_pane", 
+      "args": {"direction": "left"} },
+
+{ "keys": ["alt+shift+enter"], "command": "unzoom_pane" },
+{ "keys": ["ctrl+alt+shift+enter"], "command": "unzoom_pane" },
 ]

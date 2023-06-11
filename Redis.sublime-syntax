@@ -1,0 +1,33 @@
+%YAML 1.2
+---
+name: Redis
+file_extensions:
+  - redis
+scope: source.redis
+variables:
+  keywords: |-
+    (?ix: ZPOPMAX | ZRANGEBYSCORE | FLUSHALL | SET | GET | INCR | DECR | HSET | HGET | LPUSH | RPUSH | LPOP | RPOP | SADD | SMEMBERS | ZADD | ZRANGE | FLUSHDB | KEYS | EXISTS | DEL | TTL | EXPIRE | PERSIST | APPEND | STRLEN | MGET | MSET | INCRBY | DECRBY | HGETALL | HDEL | HEXISTS | HINCRBY | HKEYS | HLEN | HMGET | HMSET | HSETNX | HVALS | LINDEX | LINSERT | LLEN | LRANGE | LREM | LSET | LTRIM | PUBLISH | SUBSCRIBE | UNSUBSCRIBE | PSUBSCRIBE | PUNSUBSCRIBE | ZCARD | ZCOUNT | ZINCRBY | ZRANK | ZREM | ZREMRANGEBYRANK | ZREMRANGEBYSCORE | ZREVRANK | ZSCORE | ZUNIONSTORE | ZINTERSTORE | SORT | BLPOP | BRPOP | BRPOPLPUSH | WATCH | UNWATCH | MULTI | EXEC | DISCARD | EVAL | EVALSHA | SCRIPT LOAD | SCRIPT EXISTS | SCRIPT FLUSH | SCRIPT KILL | BGSAVE | BGREWRITEAOF | SAVE | SHUTDOWN | INFO | MONITOR | SLAVEOF | CONFIG GET | CONFIG SET | CONFIG RESETSTAT | DEBUG OBJECT | DEBUG SEGFAULT)
+contexts:
+  main:
+    # - meta_scope: text.redis
+    - match: '^(#|\/\/).*$'
+      scope: comment.line.redis
+    - match: '\b{{keywords}}\b'
+      scope: keyword.redis
+    - match: '\b(true|false)\b'
+      scope: constant.language.redis
+    - match: '\b\d+\b'
+      scope: constant.numeric.redis
+    - match: '\b([a-zA-Z_][a-zA-Z0-9_]*):'
+      scope: variable.redis
+    - match: '\b([a-zA-Z_][a-zA-Z0-9_]*)(?=\s|$)'
+      scope: entity.name.function.redis
+    - match: '"'
+      scope: string.redis
+      set: string
+
+  string:
+    - meta_scope: string.redis
+    - match: '(.*?)"'
+      scope: string.redis
+      set: main
